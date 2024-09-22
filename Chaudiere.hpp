@@ -2,8 +2,8 @@
  *	@file	Chaudiere.hpp
  * 	@brief 	Header file for the Chaudiere interface and the 
  * 			DummyChaudiere concrete class
- * 	@author	Alexis ROLLAND
- * 	@date	09/2024
+ * 	@author	
+ * 	@date	
  * 
  */
 
@@ -11,7 +11,6 @@
 #define	__CHAUDIERE_H__
 
 #include <iostream>
-#include <print>
 
 //----------------------------------------------------------------------
 class	BoilerAlreadyONexception:public std::exception{};			/**< Exception thrown if trying to set ON an already on boiler	*/
@@ -38,21 +37,18 @@ class Chaudiere{
 		* 
 		*/	 
 		void	setStatus(Status status) noexcept {this->status = status;};
-		 
 	public:
 		Chaudiere() = default;					/**<	Defaulted default Ctor	*/
 		virtual ~Chaudiere() = default;			/**<	Defaulted Dtor			*/
 		
-		
 		/**
 		*	getter for the status field
 		* 	
-		*	const : this function is usable with a const object
 		* 	noexcept : this function throws no exception
 		* 
 		* 	@return : heater status
 		*/	
-		Status	getStatus() const noexcept {return this->status;};
+		Status	getStatus(){return this->status;};
 		
 		/**
 		*	setON() function - pure virtual function
@@ -73,7 +69,6 @@ class Chaudiere{
 		virtual void 	setOFF() = 0;
 	
 };
-
 //----------------------------------------------------------------------
 class DummyChaudiere : public Chaudiere{
 	private:
@@ -89,7 +84,7 @@ class DummyChaudiere : public Chaudiere{
 		* 	@throw	HeaterAlreadyONexception	if the boiler is already on
 		* 
 		*/	
-		virtual	void 	setON() override;
+		virtual	void 	setON();
 		
 		/**
 		*	setOFF() function
@@ -98,10 +93,14 @@ class DummyChaudiere : public Chaudiere{
 		* 	@throw	HeaterAlreadyOFFexception	if the boiler is already off
 		* 
 		*/	
-		virtual void 	setOFF() override;
+		virtual void 	setOFF();
 	
 };
 //----------------------------------------------------------------------
+
+
+
+
 
 #endif	/* __CHAUDIERE_H__ */
 
