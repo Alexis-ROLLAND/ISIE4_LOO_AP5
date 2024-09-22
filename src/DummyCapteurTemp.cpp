@@ -1,3 +1,11 @@
+/**
+ *	@file	DummyCapteurTemp.cpp
+ * 	@brief 	Definition file for the DummyCapteurTemp concrete class
+ *          (based on CapteurTemp interface)
+ * 	@author	Alexis ROLLAND
+ * 	@date	09/2024
+ * 
+ */
 #include "DummyCapteurTemp.hpp"
 
 

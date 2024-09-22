@@ -1,8 +1,8 @@
 /**
  *	@file		appThermostat.cpp
  * 	@brief 		appThermostat definition file
- * 	@author		
- * 	@date		
+ * 	@author		Alexis ROLLAND
+ * 	@date		09/2024
  * 
  */
 
@@ -40,14 +40,15 @@ void ThermostatApp::_processingThread(){
 	while(true){
 		std::this_thread::sleep_for(process_delay);
 		actualTemp = this->getTemp();
-		std::clog << "Actual temperature = " << actualTemp << ". Setpoint is " << this->getConsigne() << std::endl;
+		//std::clog << "Actual temperature = " << actualTemp << ". Setpoint is " << this->getConsigne() << std::endl;
+		std::println(std::clog,"Actual temperature = {0:0.1f}°C. Setpoint is {1:0.1f}.",actualTemp,this->getConsigne());
 
 		if (actualTemp > (this->getConsigne() + this->getHysteresis()) ){
 			try{
 				this->pChaudiere->setOFF();
 				}
 			catch(const std::exception& e){
-				std::clog << "Chaudiere already OFF.\n";
+				std::println(std::clog,"Chaudiere already OFF.");
 			}
 
 		}
@@ -56,11 +57,11 @@ void ThermostatApp::_processingThread(){
 				this->pChaudiere->setON();
 				}
 			catch(const std::exception& e){
-				std::clog << "Chaudiere already ON.\n";
+				std::println(std::clog,"Chaudiere already ON.");
 			}
 		}
 		else{
-			std::clog << "No action required...\n";
+			std::println(std::clog, "No action required...");
 		}
 
 

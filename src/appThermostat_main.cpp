@@ -15,10 +15,10 @@
 
 #include <cassert>
 
-#define		TEST_CHAUDIERE
+//#define		TEST_CHAUDIERE
 //#define		TEST_DUMMY_CAPTEUR_TEMP
 //#define		TEST_NETWORK_CAPTEUR_TEMP
-//#define		APPLICATION
+#define		APPLICATION
 
 //----------------------------------------------------------------------------
 //--------------------- Unit test : Chaudiere	------------------------------
@@ -82,12 +82,11 @@ int main(){
 #ifdef	TEST_DUMMY_CAPTEUR_TEMP
 int main(){
 
-	std::cout << "Test unitaire - DummyCapteurTemp\n";
+	std::println("Test unitaire - DummyCapteurTemp");
 
 	DummyCapteurTemp mySensor{};
 
-	for (int i = 0; i<10; ++i) std::cout << "Tirage " << i << " : " << mySensor.getTemp() << std::endl;
-
+	for (int i = 0; i<10; ++i) std::println("Tirage {0:d} : {1:0.1f}",i ,mySensor.getTemp());
 
 	return 0;
 }
@@ -105,7 +104,7 @@ int main(){
 	while(true){
 		std::this_thread::sleep_for(3s);
 		temp = mySensor.getTemp();
-		std::cout << "Temperature = " << temp << "°C\n";
+		std::println("Temperature = {0:0.1f} °C",temp);
 	}
 
 

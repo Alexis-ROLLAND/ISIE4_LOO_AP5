@@ -4,6 +4,7 @@
 #include <thread>
 #include <netinet/in.h>
 #include <iostream>
+#include <print>
 
 #include "CapteurTemp.hpp"
 
