@@ -116,7 +116,7 @@ int main(){
 //--------------------------- Application ------------------------------------
 #ifdef	APPLICATION
 int main(){
-	std::cout << "--- Gestion chaudière - main app - Starting---\n";
+	std::println("--- Gestion chaudière - main app - Starting---");
 
 	std::unique_ptr<DummyChaudiere>	pBoiler = std::make_unique<DummyChaudiere>();	/**<  Création Objet Chaudiere avec unique_ptr */
 
