@@ -34,7 +34,8 @@ class Tirelire {
     };
 
   private:
-    std::vector<Piece> Vault{}; /**< Container for coins inside the vault */
+    std::vector<Piece> Vault{};                             /**< Container for coins inside the vault */
+    std::vector<Piece> &getVault() { return this->Vault; }; /**< getter to the Vault - Very clean version */
 
     /**
      * @brief Checks if a coin is valid
@@ -58,16 +59,20 @@ class Tirelire {
      *
      * @return true if the vault is empty
      * @return false if the vault is not empty
+     * @attention Two versions available - choose one and comment the other
      */
-    [[nodiscard]] bool isEmpty() noexcept { return this->Vault.empty(); };
+    //[[nodiscard]] bool isEmpty() noexcept { return this->Vault.empty(); };      /**< OK version */
+    [[nodiscard]] bool isEmpty() noexcept { return this->getVault().empty(); }; /**< Using getter version - cleaner */
 
     /**
      * @brief Get the Nb Coins object
      *
      * @return auto
      * @remark auto return type to automaticaly adjust to std::size_t() or other real return type from size() function.
+     * @attention Two versions available - choose one and comment the other
      */
-    [[nodiscard]] auto getNbCoins() noexcept { return this->Vault.size(); };
+    //[[nodiscard]] auto getNbCoins() noexcept { return this->Vault.size(); };                      /**< OK version */
+    [[nodiscard]] auto getNbCoins() noexcept { return this->getVault().size(); }; /**< Using getter version - cleaner */
 
     /**
      * @brief Adds a coin to the vault
