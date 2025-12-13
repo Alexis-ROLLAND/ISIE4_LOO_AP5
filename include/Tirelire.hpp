@@ -34,8 +34,10 @@ class Tirelire {
     };
 
   private:
-    std::vector<Piece> Vault{};                             /**< Container for coins inside the vault */
-    std::vector<Piece> &getVault() { return this->Vault; }; /**< getter to the Vault - Very clean version */
+    std::vector<Piece> Vault{}; /**< Container for coins inside the vault */
+    [[nodiscard]] std::vector<Piece> &getVault() noexcept {
+        return this->Vault;
+    }; /**< getter to the Vault - Very clean version */
 
     /**
      * @brief Checks if a coin is valid

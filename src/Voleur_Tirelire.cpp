@@ -4,7 +4,9 @@
 #include <thread>
 
 #include "Tirelire.hpp"
+
 //----------------------------------------------------------------------------
+
 void _Voleur(Tirelire &Victime) {
     using namespace std::chrono_literals;
     Tirelire::Piece Msc{}; /** Most Significant Coin   :)  */
@@ -35,6 +37,7 @@ void _Voleur(Tirelire &Victime) {
     }
     std::println("Plus rien à voler, je m'en vais...");
 }
+
 //----------------------------------------------------------------------------
 int main() {
     Tirelire SpiderCochon{};
